@@ -13,7 +13,6 @@ var notify = require('gulp-notify');
 
 // Error Helper
 function onError(err) {
-    //beeper();
     console.log(err);
 }
 
@@ -64,7 +63,7 @@ gulp.task('images', function() {
 
 // Clean Task
 gulp.task('clean', function() {
-    return gulp.src(['server/css', 'server/js, server/img'], {read: false})
+    return gulp.src(['server/css/*', 'server/js/*, server/img/*'], {read: false})
         .pipe(clean());
 });
 
