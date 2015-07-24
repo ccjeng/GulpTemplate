@@ -9,6 +9,7 @@ var connect = require('gulp-connect');
 var livereload = require('gulp-livereload');
 var clean = require('gulp-clean');
 var sourcemaps = require('gulp-sourcemaps');
+var notify = require('gulp-notify');
 
 // Error Helper
 function onError(err) {
@@ -18,27 +19,25 @@ function onError(err) {
 
 // Server Task
 gulp.task('server', function() {
-	connect.server({
-	    root: 'server',
-	    livereload: true
-  	});
+    connect.server({
+        root: 'server',
+        livereload: true
+    });
 });
 
 // Styles Task
 gulp.task('styles', function() {
     return gulp.src('src/css/*.css')
-        //.pipe(plumber({
-        //    errorHandler: onError
-        //}))
         .pipe(concat('all.css'))
         .pipe(myth())
-        .pipe(gulp.dest('server/css'));
+        .pipe(gulp.dest('server/css'))
+        .pipe(notify({ message: 'Styles task complete' }));
 });
 
 gulp.task('html', function () {
-  	return gulp.src('src/*.html')
-  		.pipe(gulp.dest('server'))
-    	.pipe(connect.reload());
+    return gulp.src('src/*.html')
+        .pipe(gulp.dest('server'))
+        .pipe(notify({ message: 'Html task complete' }));
 });
 
 // Scripts Task
@@ -50,25 +49,35 @@ gulp.task('scripts', function() {
         .pipe(concat('all.min.js'))
         .pipe(uglify())
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest('server/js'));
+        .pipe(gulp.dest('server/js'))
+        .pipe(notify({ message: 'Styles task complete' }));
 });
 
 // Images Task
 gulp.task('images', function() {
     return gulp.src('src/img/*')
         .pipe(imagemin())
-        .pipe(gulp.dest('server/img'));
+        .pipe(gulp.dest('server/img'))
+        .pipe(notify({ message: 'Images task complete' }));
 });
+
 
 // Clean Task
 gulp.task('clean', function() {
-    return gulp.src(['server/*.css', 'server/*.js'], {read: false})
+    return gulp.src(['server/css', 'server/js, server/img'], {read: false})
         .pipe(clean());
 });
 
 // Watch Task
 gulp.task('watch', function() {
-	gulp.watch('src/*', ['html', 'styles', 'scripts', 'images']);
+    gulp.watch('src/*.html', ['html']);
+    gulp.watch('src/css/*.css', ['styles']);
+    gulp.watch('src/js/*.js', ['scripts']);
+    gulp.watch('src/img/*', ['images']);
+
+    // Watch any files in server/, reload on change
+    livereload.listen();
+    gulp.watch(['server/**']).on('change', livereload.changed);
 });
 
 // Default Task
