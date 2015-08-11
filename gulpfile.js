@@ -30,7 +30,7 @@ gulp.task('styles', function() {
         .pipe(sourcemaps.init())
         .pipe(concat('all.min.css'))
         .pipe(cssminify())  
-        .pipe(sourcemaps.write())      
+        .pipe(sourcemaps.write('./'))      
         .pipe(gulp.dest('server/css'))
         .pipe(notify({ message: 'Styles task complete' }));
 });
@@ -49,7 +49,7 @@ gulp.task('scripts', function() {
         .pipe(jshint.reporter('default'))
         .pipe(concat('all.min.js'))
         .pipe(uglify())
-        .pipe(sourcemaps.write())
+        .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest('server/js'))
         .pipe(notify({ message: 'Styles task complete' }));
 });
