@@ -1,5 +1,6 @@
 **Gulp Template**
 -----------------
+This is a gulp template which I am currently using for web development.
 
 **Install**
  1. install node.js
