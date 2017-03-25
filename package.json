@@ -1,8 +1,9 @@
 {
-  "name": "trash",
+  "name": "Gulp Template",
   "main": "server.js",
   "dependencies": {},
   "devDependencies": {
+    "browserify": "^14.1.0",
     "gulp": "^3.9.1",
     "gulp-clean": "^0.3.2",
     "gulp-clean-css": "^3.0.3",
@@ -14,6 +15,17 @@
     "gulp-notify": "^3.0.0",
     "gulp-uglify": "^2.1.0",
     "gulp-watch": "^4.3.11",
-    "jshint": "^2.9.4"
+    "gulp-gh-pages": "^0.5.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ccjeng/GulpTemplate.git"
+  },
+  "author": "ccjeng",
+  "license": "MIT",
+  "scripts": {
+    "start": "gulp", 
+    "build": "gulp build",
+    "deploy": "gulp deploy"
   }
 }
