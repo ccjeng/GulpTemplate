@@ -53,8 +53,8 @@ gulp.task('styles', function() {
 });
 
 gulp.task('html', function () {
-    return gulp.src('${dirs.src}/*.html')
-        .pipe(gulp.dest('${dirs.dest}'))
+    return gulp.src(dirs.src+'/*.html')
+        .pipe(gulp.dest(dirs.dest))
         .pipe(connect.reload());
 });
 
