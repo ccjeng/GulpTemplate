@@ -2,7 +2,7 @@
 var gulp = require('gulp');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
-var cssminify = require('gulp-clean-css');
+var sass = require('gulp-sass');
 var imagemin = require('gulp-imagemin');
 var connect = require('gulp-connect'); 
 var livereload = require('gulp-livereload');
@@ -42,12 +42,11 @@ gulp.task('server', function() {
 });
 
 // Styles Task
-gulp.task('styles', function() {
-    return gulp.src(stylesPaths.src)
+gulp.task('styles', function () {
+     return gulp.src(stylesPaths.src)
         .pipe(sourcemaps.init())
-        .pipe(concat('all.min.css'))
-        .pipe(cssminify())  
-        .pipe(sourcemaps.write('./'))      
+        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest(stylesPaths.dest))
         .pipe(connect.reload());
 });
