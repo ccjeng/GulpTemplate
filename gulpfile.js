@@ -13,7 +13,7 @@ var ghPages = require('gulp-gh-pages');
 
 const dirs = {
   src: 'src',
-  dest: 'server'
+  dest: 'dest'
 };
 
 const stylesPaths = {
@@ -103,6 +103,3 @@ gulp.task('ghpages', ['build'], function() {
 gulp.task('default', ['clean', 'html', 'styles', 'scripts', 'images', 'server', 'watch']);
 gulp.task('build', ['clean', 'html', 'scripts', 'styles', 'images']);
 gulp.task('deploy', ['ghpages']);
-
-
-
