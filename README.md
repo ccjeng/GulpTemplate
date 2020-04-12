@@ -8,7 +8,7 @@ This is a gulp template I am currently using for web development.
 1. Install node.js
 2. Install gulp
 ```
- sudo npm install gulp
+ npm install -g gulp
 ```
 3. Install gulp packages
 ```
@@ -25,11 +25,11 @@ This is a gulp template I am currently using for web development.
 Access development web via http://locahost:8080
 
 ```
-npm start
+gulp
 ```
 
 ### Build
 
 ```
-npm build
+gulp build
 ```
