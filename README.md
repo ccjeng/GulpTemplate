@@ -3,8 +3,6 @@ This is a gulp template I am currently using for web development.
 
 ## Feature
 - Minify javascript, css and images
-- Sass
-- Deploy to Github page
 
 ## Install
 1. Install node.js
@@ -34,10 +32,4 @@ npm start
 
 ```
 npm build
-```
-
-### Deploy to Github Page
-
-```
-npm deploy
 ```

@@ -1,29 +1,23 @@
 {
   "name": "GulpTemplate",
-  "main": "server.js",
-  "dependencies": {},
+  "version": "1.0.1",
+  "main": "gulpfile.js",
   "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "del": "^5.1.0",
     "gulp": "^4.0.2",
-    "gulp-clean": "^0.4.0",
-    "gulp-clean-css": "^4.0.3",
     "gulp-concat": "^2.6.1",
-    "gulp-connect": "^5.7.0",
     "gulp-imagemin": "^7.1.0",
-    "gulp-livereload": "^4.0.2",
-    "gulp-notify": "^3.2.0",
-    "gulp-uglify": "^3.0.2",
-    "gulp-watch": "^5.0.1",
-    "gulp-gh-pages": "^0.5.4"
+    "gulp-uglify": "^3.0.2"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ccjeng/GulpTemplate.git"
   },
   "author": "ccjeng",
-  "license": "CCO 1.0",
+  "license": "CCO",
   "scripts": {
     "start": "gulp",
-    "build": "gulp build",
-    "deploy": "gulp deploy"
+    "build": "gulp build"
   }
 }
