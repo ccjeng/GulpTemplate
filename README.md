@@ -22,11 +22,10 @@ This is a gulp template I am currently using for web development.
 ## Usage
 
 ###  Run
-Access development web via http://locahost:8080
-
 ```
 gulp
 ```
+Access development web via http://locahost:8080
 
 ### Build
 
