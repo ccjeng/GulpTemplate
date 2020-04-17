@@ -57,7 +57,7 @@ gulp.task('images', function() {
 });
 
 gulp.task('clean', function(cb) {
-  del([scriptsPaths.src, stylesPaths.src], cb)
+  del([scriptsPaths.dest+'/*.js', stylesPaths.dest+'/*.css'], cb)
 });
 
 // Watch Task
